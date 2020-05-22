@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace lab_8
 {
     public partial class FormPC : Form
     {
+        private XmlFileManager _fileManager = new XmlFileManager();
         private List<PCStruct> _originalList = new List<PCStruct>();
+        private List<PCStruct> _filteredList = new List<PCStruct>();
         private Filter _filter = new Filter(new List<Func<PCStruct, bool>>());
 
         public FormPC()
@@ -43,9 +43,12 @@ namespace lab_8
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            foreach (int index in listView.SelectedIndices)
+            var sortedIndices = listView.SelectedIndices.Cast<int>().ToList();
+            sortedIndices.Sort();
+
+            for (var i = sortedIndices.Count - 1; i >= 0; i--)
             {
-                _originalList.RemoveAt(index);
+                _originalList.Remove(_filteredList[sortedIndices[i]]);
             }
 
             UpdateListView();
@@ -79,8 +82,7 @@ namespace lab_8
             var filename = openFileDialog.FileName;
             try
             {
-                var file = XElement.Load(filename);
-                _originalList = file.Descendants("PC").Select(item => PCStruct.FromXElement(item)).ToList();
+                _originalList = _fileManager.Load(filename).ToList();
             } 
             catch
             {
@@ -98,12 +100,9 @@ namespace lab_8
 
             var filename = saveFileDialog.FileName;
 
-            var file = new XElement("PCs");
-            _originalList.ForEach(item => file.Add(item.GetXElement()));
-
             try
             {
-                file.Save(filename);
+                _fileManager.Save(_originalList, filename);
             }
             catch
             {
@@ -115,7 +114,8 @@ namespace lab_8
         private void UpdateListView()
         {
             listView.Items.Clear();
-            _filter.FilterItems(_originalList).ForEach(item => listView.Items.Add(item.GetListViewItem()));
+            _filteredList = _filter.FilterItems(_originalList).ToList();
+            _filteredList.ForEach(item => listView.Items.Add(item.GetListViewItem()));
         }
 
         private void listView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

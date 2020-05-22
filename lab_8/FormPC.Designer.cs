@@ -47,9 +47,9 @@
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.resetButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +81,7 @@
             // addButton
             // 
             this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addButton.Location = new System.Drawing.Point(8, 48);
+            this.addButton.Location = new System.Drawing.Point(8, 56);
             this.addButton.Margin = new System.Windows.Forms.Padding(8);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(134, 59);
@@ -93,7 +93,7 @@
             // removeButton
             // 
             this.removeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.removeButton.Location = new System.Drawing.Point(158, 48);
+            this.removeButton.Location = new System.Drawing.Point(158, 56);
             this.removeButton.Margin = new System.Windows.Forms.Padding(8);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(134, 59);
@@ -105,12 +105,12 @@
             // filterButton
             // 
             this.filterButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filterButton.Location = new System.Drawing.Point(605, 48);
+            this.filterButton.Location = new System.Drawing.Point(605, 56);
             this.filterButton.Margin = new System.Windows.Forms.Padding(8);
             this.filterButton.Name = "filterButton";
             this.filterButton.Size = new System.Drawing.Size(134, 59);
             this.filterButton.TabIndex = 2;
-            this.filterButton.Text = "Filter";
+            this.filterButton.Text = "New Filter";
             this.filterButton.UseVisualStyleBackColor = true;
             this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
@@ -130,10 +130,10 @@
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.FullRowSelect = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(8, 115);
+            this.listView.Location = new System.Drawing.Point(8, 123);
             this.listView.Margin = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(881, 527);
+            this.listView.Size = new System.Drawing.Size(881, 519);
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -187,13 +187,12 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.menuStrip1, 5);
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(897, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(897, 48);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -204,7 +203,7 @@
             this.toolStripSeparator1,
             this.saveMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 44);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openMenuItem
@@ -226,18 +225,10 @@
             this.saveMenuItem.Text = "Save";
             this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
             // 
-            // openFileDialog
-            // 
-            this.openFileDialog.Filter = "xml files (*.xml)|*.xml";
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.Filter = "xml files (*.xml)|*.xml";
-            // 
             // resetButton
             // 
             this.resetButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resetButton.Location = new System.Drawing.Point(755, 48);
+            this.resetButton.Location = new System.Drawing.Point(755, 56);
             this.resetButton.Margin = new System.Windows.Forms.Padding(8);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(134, 59);
@@ -245,6 +236,14 @@
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "xml files (*.xml)|*.xml";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "xml files (*.xml)|*.xml";
             // 
             // FormPC
             // 
