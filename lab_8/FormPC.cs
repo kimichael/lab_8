@@ -10,7 +10,7 @@ namespace lab_8
         private XmlFileManager _fileManager = new XmlFileManager();
         private List<PCStruct> _originalList = new List<PCStruct>();
         private List<PCStruct> _filteredList = new List<PCStruct>();
-        private Filter _filter = new Filter(new List<Func<PCStruct, bool>>());
+        private Filter _filter = new Filter();
 
         public FormPC()
         {
@@ -130,7 +130,7 @@ namespace lab_8
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            _filter = new Filter(new List<Func<PCStruct, bool>>());
+            _filter = new Filter();
             UpdateListView();
         }
     }
